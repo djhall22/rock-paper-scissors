@@ -9,16 +9,28 @@ function checkWin(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
     return "tie";
   } else if (playerChoice === "rock" && computerChoice === "scissors") {
-    return "player wins";
-  } else if (playerchoice === "paper" && computerChoice === "rock") {
-    return "player wins";
-  } else if (playerchoice === "scissors" && computerChoice === "paper") {
-    return "player wins";
+    return "player";
+  } else if (playerChoice === "paper" && computerChoice === "rock") {
+    return "player";
+  } else if (playerChoice === "scissors" && computerChoice === "paper") {
+    return "player";
   } else {
-    return "computer wins";
+    return "computer";
   }
 }
 
-function playGame(playerChoice, computerChoice) {}
+function playGame(playerChoice, computerChoice) {
+  const result = checkWin(playerChoice, computerChoice);
+  if (result == "tie") {
+    return "Tie Game!";
+  } else if (result == "player") {
+    return `Player one wins! ${playerChoice} beats ${computerChoice}.`;
+  } else if (result == "computer") {
+    return `Computer wins! ${computerChoice} beats ${playerChoice}`;
+  }
+}
 
-getComputerChoice();
+const playerChoice = "scissors";
+const computerChoice = getComputerChoice();
+
+console.log(playGame(playerChoice, computerChoice));
