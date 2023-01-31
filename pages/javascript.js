@@ -7,7 +7,15 @@ function getComputerChoice() {
 
 function checkWin(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
-    alert("Tie Game!");
+    return "tie";
+  } else if (playerChoice === "rock" && computerChoice === "scissors") {
+    return "player wins";
+  } else if (playerchoice === "paper" && computerChoice === "rock") {
+    return "player wins";
+  } else if (playerchoice === "scissors" && computerChoice === "paper") {
+    return "player wins";
+  } else {
+    return "computer wins";
   }
 }
 
