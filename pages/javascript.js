@@ -19,7 +19,7 @@ function checkWin(playerChoice, computerChoice) {
   }
 }
 
-function playGame(playerChoice, computerChoice) {
+function playRound(playerChoice, computerChoice) {
   const result = checkWin(playerChoice, computerChoice);
   if (result == "tie") {
     return "Tie Game!";
@@ -30,7 +30,28 @@ function playGame(playerChoice, computerChoice) {
   }
 }
 
-const playerChoice = "scissors";
-const computerChoice = getComputerChoice();
+function getPlayerChoice() {
+  let validatedInput = false;
+  while (validatedInput === false) {
+    const choice = prompt("Rock, Paper, Scissors");
 
-console.log(playGame(playerChoice, computerChoice));
+    if (choice == null) {
+      continue;
+    }
+    const choiceInLower = choice.toLowerCase();
+    if (options.includes(choiceInLower)) {
+      validatedInput == true;
+      return choiceInLower;
+    }
+  }
+}
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    const playerChoice = getPlayerChoice();
+    const computerChoice = getComputerChoice();
+    console.log(playRound(playerChoice, computerChoice));
+  }
+}
+
+game();
